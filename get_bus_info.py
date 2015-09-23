@@ -9,11 +9,8 @@ if __name__=='__main__':
 	jsonFile = json.load(request)
 	Bus = jsonFile["Siri"]["ServiceDelivery"]["VehicleMonitoringDelivery"][0]["VehicleActivity"]
 
-	#open(name[, mode[, buffering]])
 	with open(sys.argv[3], 'wb') as csvfile:
-		#csv.writer(csvfile, dialect='excel', **fmtparams)
 		writer = csv.writer(csvfile)
-		#Write the row parameter to the writer’s file object, formatted according to the current dialect.
 		writer.writerow(['Latitude', 'Longitude', 'StopName', 'StopStatus'])
 		
 		for EachBus in Bus:
